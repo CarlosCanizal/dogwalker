@@ -10,5 +10,10 @@ angular.module('app.controllers')
   .controller('RegisterCtrl', ['$scope', '$state', function($scope, $state) {
     
   }])
+  .controller('RegisterFormCtrl', ['$scope', '$state', function($scope, $state) {
 
-  ;
+    $scope.registerUser = function(){
+      alert('register');
+    };
+    
+  }]);
