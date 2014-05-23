@@ -22,5 +22,9 @@ angular.module('app.controllers')
         }
       );
     };
+
+    $scope.showError = function(ngModelController, error) {
+      return ngModelController.$error[error];
+    };
     
   }]);
