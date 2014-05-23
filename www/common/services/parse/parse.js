@@ -1,6 +1,6 @@
-angular.module('myApp.services')
+app
 .factory('Parse', function(){
-  Parse.initialize('nsKr9xWe53IQ4C66OtZ9BQclKE0gxAcEwuXARl8Z',
-                   '7Wmoi7N3imPmWgTpyzklSzYw2Riv2dt8fJVOc9R7');
+  Parse.initialize('0JdcqDFgNW5i4otXFSHSQd35XHD5Wy7OsBs0pN24',
+                   'xdpduLJBaVc0H3Uge2Q2ewmkimP7pyhjld1uMJ6g');
   return Parse;
 });

@@ -1,19 +1,26 @@
 'use strict';
 
 angular.module('app.controllers')
-  .controller('SplashCtrl', ['$scope', '$state', function($scope, $state) {
+  .controller('SplashCtrl', ['$scope', function($scope) {
     
   }])
-  .controller('LoginCtrl', ['$scope', '$state', function($scope, $state) {
+  .controller('LoginCtrl', ['$scope', function($scope) {
     
   }])
-  .controller('RegisterCtrl', ['$scope', '$state', function($scope, $state) {
+  .controller('RegisterCtrl', ['$scope', function($scope) {
+    $scope.user = {};
     
   }])
-  .controller('RegisterFormCtrl', ['$scope', '$state', function($scope, $state) {
-
+  .controller('RegisterFormCtrl', ['$scope', 'Auth', function($scope, Auth) {
+    
     $scope.registerUser = function(){
-      alert('register');
+      Auth.signUp($scope.user).then(
+        function(user){
+          console.log(user);
+        },function(error){
+          console.log(error);
+        }
+      );
     };
     
   }]);
