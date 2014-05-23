@@ -1,15 +1,25 @@
 <h1>Register</h1>
 
-<form name='registerForm' id='register-form' ng-controller="RegisterFormCtrl" ng-submit="registerUser()">
+<form name='registerForm' ng-controller="RegisterFormCtrl" novalidate>
   <div class="list list-inset">
     <label class="item item-input">
-      <input type="email" placeholder="Email" ng-model="user.username">
+      <input type="email" name='username' placeholder="Email" ng-model="user.username" required>
+      <span ng-show="errorHandling.showError(registerForm.username, 'email')"> 
+        You must enter a valid email
+      </span>
+      <span ng-show="errorHandling.showError(registerForm.username, 'required')"> 
+        Email: This field is required
+      </span>
     </label>
     <label class="item item-input">
-      <input type="password" placeholder="Password" ng-model="user.password">
+      <input type="password" name='password'  placeholder="Password" ng-model="user.password" required>
+      <span ng-show="showError(registerForm.password, 'required')"> 
+        Password: This field is required
+      </span>
     </label>
   </div>
-  <button class="button button-block button-positive">
+  <button class="button button-block button-positive" ng-click="registerUser()">
     Register
   </button>
+
 </form>
