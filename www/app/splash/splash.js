@@ -11,20 +11,34 @@ angular.module('app.controllers')
     $scope.user = {};
     
   }])
-  .controller('RegisterFormCtrl', ['$scope', 'Auth', function($scope, Auth) {
+  .controller('SignUpFormCtrl', ['$scope', 'Auth', function($scope, Auth) {
     
-    $scope.registerUser = function(){
-      Auth.signUp($scope.user).then(
-        function(user){
-          console.log(user);
-        },function(error){
-          console.log(error);
-        }
-      );
+    $scope.response = {error:false, message:""};
+
+    $scope.signUp = function(){
+      $scope.response.error = false;
+      if($scope.signUpForm.$valid){
+        Auth.signUp($scope.user).then(
+          function(user){
+            console.log(user);
+          },function(error){
+            console.log(error);
+            $scope.response.error = true;
+            $scope.response.message = error.message;
+          }
+        );
+      }
+    };
+
+    $scope.getCssClasses = function(ngModelController) {
+      return {
+        error: ngModelController.$invalid && ngModelController.$dirty,
+        success: ngModelController.$valid && ngModelController.$dirty
+      };
     };
 
     $scope.showError = function(ngModelController, error) {
-      return ngModelController.$error[error];
+      return ngModelController.$error[error] && ngModelController.$dirty ;
     };
     
   }]);
