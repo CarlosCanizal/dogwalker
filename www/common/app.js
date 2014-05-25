@@ -12,12 +12,12 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services','app.directive
     .state('splash.login',{
       url: 'login',
       templateUrl: 'app/splash/login.tpl.html',
-      controller: 'LoginCtrl'
+      controller: 'LogInCtrl'
     })
     .state('splash.register',{
       url: 'register',
       templateUrl: 'app/splash/register.tpl.html',
-      controller: 'RegisterCtrl'
+      controller: 'SignUpCtrl'
     });
 
   $urlRouterProvider.otherwise('/');
