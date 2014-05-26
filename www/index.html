@@ -20,14 +20,16 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
+
     <script src="common/app.js"></script>
     <script src="common/directives/directives.js"></script>
     <script src="common/services/parse/parse.js"></script>
+    <script src="common/services/facebook/facebook.js"></script>
     <script src="common/services/auth/auth.js"></script>
     <script src="app/splash/splash.js"></script>
   </head>
   <body ng-app="app">
-
+    <div id="fb-root"></div>
     <ion-pane>
       <ion-content>
         <ui-view></ui-view>

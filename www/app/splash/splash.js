@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('app.controllers')
-  .controller('SplashCtrl', ['$scope', function($scope) {
-    
+  .controller('SplashCtrl', ['$scope','Facebook', function($scope, Facebook) {
+    Facebook.loadSDK();
   }])
   .controller('LogInCtrl', ['$scope', function($scope) {
     $scope.user = {};
@@ -41,7 +41,7 @@ angular.module('app.controllers')
     };
     
   }])
-  .controller('LogInFormCtrl', ['$scope', 'Auth', function($scope, Auth) {
+  .controller('LogInFormCtrl', ['$scope', 'Auth','Facebook', function($scope, Auth, Facebook) {
     
     $scope.response = {error:false, message:""};
 
@@ -58,6 +58,10 @@ angular.module('app.controllers')
           }
         );
       }
+    };
+
+    $scope.facebookLogIn = function(){
+      Facebook.logIn();
     };
 
     $scope.getCssClasses = function(ngModelController) {
