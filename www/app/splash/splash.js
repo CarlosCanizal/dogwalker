@@ -2,7 +2,7 @@
 
 angular.module('app.controllers')
   .controller('SplashCtrl', ['$scope','Facebook', function($scope, Facebook) {
-    Facebook.loadSDK();
+    // Facebook.loadSDK();
   }])
   .controller('LogInCtrl', ['$scope', function($scope) {
     $scope.user = {};
@@ -15,6 +15,8 @@ angular.module('app.controllers')
     $scope.response = {error:false, message:""};
 
     $scope.signUp = function(){
+      var ref = window.open('http://localhost', '_blank', 'location=yes');
+    alert();
       $scope.response.error = false;
       if($scope.signUpForm.$valid){
         Auth.signUp($scope.user).then(
@@ -61,7 +63,10 @@ angular.module('app.controllers')
     };
 
     $scope.facebookLogIn = function(){
-      Facebook.logIn();
+      Facebook.logIn().then(function(token){
+        alert(token);
+        $scope.facebook = token;
+      });
     };
 
     $scope.getCssClasses = function(ngModelController) {

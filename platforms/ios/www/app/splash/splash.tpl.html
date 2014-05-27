@@ -1,11 +1,10 @@
-<ion-slide-box on-slide-changed="slideHasChanged($index)">
-  <ion-slide>
-    <div class="box height-100 blue"><h1>BLUE</h1></div>
-  </ion-slide>
-  <ion-slide>
-    <div class="box height-100 yellow"><h1>YELLOW</h1></div>
-  </ion-slide>
-  <ion-slide>
-    <div class="box height-100 pink"><h1>PINK</h1></div>
-  </ion-slide>
-</ion-slide-box>
+<div class='blue height-100'>
+  <ui-view>
+    <a class="button button-stable" ui-sref="splash.login">
+      Login
+    </a>
+    <a class="button button-stable" ui-sref="splash.register">
+      Register
+    </a>
+  </ui-view>
+</div>

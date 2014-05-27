@@ -1,0 +1,17 @@
+2014-05-26 15:58:21.743 HelloCordova[19000:70b] Multi-tasking -> Device: YES, App: YES
+2014-05-26 15:58:21.753 HelloCordova[19000:70b] Unlimited access to network resources
+2014-05-26 15:58:21.791 HelloCordova[19000:70b] [CDVTimer][statusbar] 13.834953ms
+2014-05-26 15:58:21.792 HelloCordova[19000:70b] [CDVTimer][TotalPluginStartup] 14.433980ms
+2014-05-26 15:58:21.906 HelloCordova[19000:70b] Resetting plugins due to page load.
+2014-05-26 15:58:22.329 HelloCordova[19000:70b] Finished load of: file:///Users/carloscanizal/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/A8D5735C-BB5F-4A21-AE60-2E4671EF7E59/HelloCordova.app/www/index.html#/
+2014-05-26 15:58:22.370 HelloCordova[19000:70b] WARN: The 'status' flag passed into FB.init, when set to true, can interfere with Parse Facebook integration, so it has been suppressed. Please call FB.getLoginStatus() explicitly if you require this behavior.
+2014-05-26 15:58:23.907 HelloCordova[19000:70b] Setting the WebView's frame to {{0, 0}, {320, 459}}
+2014-05-26 15:58:23.910 HelloCordova[19000:70b] THREAD WARNING: ['InAppBrowser'] took '32.111816' ms. Plugin should use a background thread.
+Terminating in response to SpringBoard's termination.
+2014-05-26 16:08:25.272 HelloCordova[19428:70b] Multi-tasking -> Device: YES, App: YES
+2014-05-26 16:08:25.282 HelloCordova[19428:70b] Unlimited access to network resources
+2014-05-26 16:08:25.325 HelloCordova[19428:70b] [CDVTimer][statusbar] 21.049976ms
+2014-05-26 16:08:25.326 HelloCordova[19428:70b] [CDVTimer][TotalPluginStartup] 21.593988ms
+2014-05-26 16:08:25.455 HelloCordova[19428:70b] Resetting plugins due to page load.
+2014-05-26 16:08:25.721 HelloCordova[19428:70b] Finished load of: file:///Users/carloscanizal/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/A8D5735C-BB5F-4A21-AE60-2E4671EF7E59/HelloCordova.app/www/index.html#/
+Terminating in response to SpringBoard's termination.

@@ -8,6 +8,16 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services','app.directive
       url: '/',
       templateUrl: 'app/splash/splash.tpl.html',
       controller: 'SplashCtrl'
+    })
+    .state('splash.login',{
+      url: 'login',
+      templateUrl: 'app/splash/login.tpl.html',
+      controller: 'LogInCtrl'
+    })
+    .state('splash.register',{
+      url: 'register',
+      templateUrl: 'app/splash/register.tpl.html',
+      controller: 'SignUpCtrl'
     });
 
   $urlRouterProvider.otherwise('/');
@@ -20,5 +30,5 @@ angular.module('app.controllers', [])
 });
 
 angular.module('app.services', []);
-angular.module('app.directives', []);
+var app = angular.module('app.directives', []);
 
