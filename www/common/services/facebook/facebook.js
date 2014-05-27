@@ -21,10 +21,10 @@ app
           ref.parentNode.insertBefore(js, ref);
       }(document));
     },
-    logIn : function(){
+    facebookConnectPlugin : function(){
       var deferred = $q.defer();
       var object = this;
-  
+
       facebookConnectPlugin.login(["basic_info"],
         function(userData){
           var accessToken = userData.authResponse.accessToken;
@@ -48,6 +48,27 @@ app
           deferred.reject(error);
         }
       );
+      return deferred.promise;
+    },
+    logIn :function(){
+      var deferred = $q.defer();
+      if(window.cordova){
+        this.facebookConnectPlugin().then(function(user){
+          deferred.resolve(user);
+        },function(error){
+          deferred.reject(error);
+        });
+      }else{
+        Parse.FacebookUtils.logIn(null,{
+          success: function(user){
+            deferred.resolve(user);
+          },
+          error: function(user,error){
+            error.message = "User cancelled the Facebook login or did not fully authorize.";
+            deferred.reject(error);
+          }
+        });
+      }
       return deferred.promise;
     },
     getExpiration : function(){
