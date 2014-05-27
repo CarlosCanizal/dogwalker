@@ -24,10 +24,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services','app.directive
       url: '/dashboard',
       templateUrl: 'app/dashboard/dashboard.tpl.html',
       controller: 'DashboardCtrl'
-    })
-
-
-    ;
+    });
 
   $urlRouterProvider.otherwise('/');
 
