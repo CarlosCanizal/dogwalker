@@ -4,40 +4,65 @@ app
   return{
 
     loadSDK : function(){
-      // openFB.init('234275086774510');
-      // window.fbAsyncInit = function() {
-      //     Parse.FacebookUtils.init({
-      //         appId      : '234275086774510',
-      //         status     : true,
-      //         cookie     : true,
-      //         xfbml      : true
-      //     });
-      // };
+      window.fbAsyncInit = function() {
+          Parse.FacebookUtils.init({
+              appId      : '234275086774510',
+              status     : true,
+              cookie     : true,
+              xfbml      : true
+          });
+      };
 
-      // (function(d){
-      //     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-      //     if (d.getElementById(id)) {return;}
-      //     js = d.createElement('script'); js.id = id; js.async = true;
-      //     js.src = "https://connect.facebook.net/en_US/all.js";
-      //     ref.parentNode.insertBefore(js, ref);
-      // }(document));
+      (function(d){
+          var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement('script'); js.id = id; js.async = true;
+          js.src = "https://connect.facebook.net/en_US/all.js";
+          ref.parentNode.insertBefore(js, ref);
+      }(document));
     },
     logIn : function(){
       var deferred = $q.defer();
-      var fbLoginSuccess = function (userData) {
-        var token = userData.authResponse.secret;
-        alert(token);
-        deferred.resolve(JSON.stringify(userData));
-      };
-
+      var object = this;
+  
       facebookConnectPlugin.login(["basic_info"],
-        fbLoginSuccess,
+        function(userData){
+          var accessToken = userData.authResponse.accessToken;
+          var userID = userData.authResponse.userID;
+
+          var expirationDate = object.getExpiration();
+
+          authData = {
+              "id":userID,
+              "access_token": accessToken,
+              "expiration_date": expirationDate
+          };
+
+          Parse.FacebookUtils.logIn(authData).then(function(user){
+            deferred.resolve(user);
+          },function(error){
+            deferred.reject(error);
+          });
+        },
         function (error) {
           deferred.reject(error);
         }
       );
-
       return deferred.promise;
+    },
+    getExpiration : function(){
+      var time = new Date();
+      time.setDate(time.getDate()+60);
+      year = time.getFullYear();
+      month = time.getMonth()+1;
+      month = month<10?('0'+month):month;
+      day = time.getDate();
+      day = day<10?('0'+day):day;
+      hours = time.getHours();
+      minutes = time.getMinutes();
+      seconds = time.getSeconds();
+      miliseconds = time.getMilliseconds();
+      return year+"-"+month+"-"+day+"T"+hours+":"+minutes+":"+seconds+"."+miliseconds+"Z";
     }
   };
 
