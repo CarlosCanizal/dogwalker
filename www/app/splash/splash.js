@@ -10,17 +10,17 @@ angular.module('app.controllers')
   .controller('SignUpCtrl', ['$scope', function($scope) {
     $scope.user = {};
   }])
-  .controller('SignUpFormCtrl', ['$scope', 'Auth', function($scope, Auth) {
+  .controller('SignUpFormCtrl', ['$scope','$state', 'Auth', function($scope, $state, Auth) {
     
     $scope.response = {error:false, message:""};
 
     $scope.signUp = function(){
-      var ref = window.open('http://localhost', '_blank', 'location=yes');
       $scope.response.error = false;
       if($scope.signUpForm.$valid){
         Auth.signUp($scope.user).then(
           function(user){
             console.log(user);
+            $state.go("dashboard");
           },function(error){
             console.log(error);
             $scope.response.error = true;
@@ -42,7 +42,7 @@ angular.module('app.controllers')
     };
     
   }])
-  .controller('LogInFormCtrl', ['$scope', 'Auth','Facebook', function($scope, Auth, Facebook) {
+  .controller('LogInFormCtrl', ['$scope', '$state', 'Auth','Facebook', function($scope, $state, Auth, Facebook) {
     
     $scope.response = {error:false, message:""};
 
@@ -52,6 +52,7 @@ angular.module('app.controllers')
         Auth.logIn($scope.user).then(
           function(user){
             console.log(user);
+            $state.go("dashboard");
           },function(error){
             console.log(error);
             $scope.response.error = true;
@@ -63,7 +64,8 @@ angular.module('app.controllers')
 
     $scope.facebookLogIn = function(){
       Facebook.logIn().then(function(user){
-        alert('success!');
+        console.log(user);
+        $state.go("dashboard");
       },function(error){
         alert(error.message);
       });
