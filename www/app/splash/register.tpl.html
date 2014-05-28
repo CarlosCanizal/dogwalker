@@ -13,10 +13,14 @@
             
           </label>
           <label class="item item-input">
-            <input type="password" name='password'  placeholder="Password" ng-model="user.password" required>
+            <input type="password" name='password'  placeholder="Password" ng-model="user.password"  same-as="confirm_password" required>
+          </label>
+          <label class="item item-input">
+            <input type="password" name="confirm_password"  placeholder="Confirm Password" ng-model="confirm_password" equal-as="user.password"   />
           </label>
         </div>
         <div class='invalid'>
+
           <span ng-show="showError(signUpForm.username, 'email')"> 
               You must enter a valid email.
           </span>
@@ -26,6 +30,9 @@
           <span ng-show="showError(signUpForm.password, 'required')"> 
               Password is required.
           </span>
+          <span ng-show="showError(signUpForm.confirm_password, 'required')"> 
+              Password Confirmation is required.
+          </span>
         </div>
       
         <div class='invalid' ng-if="response.error" >
@@ -34,7 +41,7 @@
       </form>
     </div>
     <div class='splash-buttons padding-15'>
-      <button class="button button-block button-positive" ng-click="signUp()">SignUp</button>
+      <button class="button button-block button-blank" ng-click="signUp()">SignUp</button>
       <a class='button button-block button-blank' ui-sref='splash'>Cancel</a>
     </div>
   </div>
