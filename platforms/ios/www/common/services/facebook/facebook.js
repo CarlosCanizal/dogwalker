@@ -69,9 +69,7 @@ app
           }
         });
       }
-
       return deferred.promise;
-
     },
     getExpiration : function(){
       var time = new Date();

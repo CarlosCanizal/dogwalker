@@ -18,6 +18,12 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services','app.directive
       url: 'register',
       templateUrl: 'app/splash/register.tpl.html',
       controller: 'SignUpCtrl'
+    })
+    //dashboard
+    .state('dashboard',{
+      url: '/dashboard',
+      templateUrl: 'app/dashboard/dashboard.tpl.html',
+      controller: 'DashboardCtrl'
     });
 
   $urlRouterProvider.otherwise('/');
