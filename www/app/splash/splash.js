@@ -16,6 +16,13 @@ angular.module('app.controllers')
 
     $scope.signUp = function(){
       $scope.response.error = false;
+      
+      if($scope.user.password !== $scope.confirm_password){
+        $scope.response.error = true;
+        $scope.response.message = "Password does not match.";
+        return false;
+      }
+
       if($scope.signUpForm.$valid){
         Auth.signUp($scope.user).then(
           function(user){
