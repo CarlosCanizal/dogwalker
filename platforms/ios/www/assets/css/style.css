@@ -29,8 +29,14 @@ body, html{
 }
 
 .padding-15{
-  padding:15px;
+  padding:0 15px;
 }
+
+.padding-top-15{
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
 
 .margin-15{
   padding:15px;
