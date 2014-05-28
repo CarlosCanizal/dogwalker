@@ -29,13 +29,26 @@ body, html{
 }
 
 .padding-15{
-  padding:15px;
+  padding:0 15px;
 }
+
+.padding-top-15{
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
+
+.margin-15{
+  padding:15px;
+  background-color: #ccc;
+}
+
 
 .button-empty{
   border-color:#fff;
   background-color: transparent;
   color: #fff;
+  display: 
 }
 
 .button-empty:active,.button-empty:hover{
@@ -58,5 +71,6 @@ body, html{
 }
 
 .invalid{
+  text-align: center;
   color:#e4303c;
 }

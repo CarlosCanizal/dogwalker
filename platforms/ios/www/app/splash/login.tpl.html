@@ -1,35 +1,39 @@
-<h1>Login</h1>
 
+<div ng-controller="LogInFormCtrl" class='height-100 relative'>
 
-<div ng-controller="LogInFormCtrl">
-  {{facebook}}
-  <a class='button button-block button-positive' ng-click="facebookLogIn()">Login with Facebook</a>
+  <div class='padding-15'>
+    <a class='button button-block button-positive' ng-click="facebookLogIn()">Login with Facebook</a>
 
-  <form name='logInForm' novalidate>
-    <div class="list list-inset">
-      <label class="item item-input">
-        <input type="email" name='username' placeholder="Email" ng-model="user.username" required>
+    <h2 class='align-center'>Or</h2>
+    
+    <form name='logInForm' novalidate>
+      <div class="list">
+        <label class="item item-input">
+          <input type="email" name='username' placeholder="Email" ng-model="user.username" required>
+        </label>
+        <label class="item item-input">
+          <input type="password" name='password'  placeholder="Password" ng-model="user.password" required>
+          
+        </label>
+      </div>
+      <div class='invalid'>
         <span ng-show="showError(logInForm.username, 'email')"> 
-          You must enter a valid email
+            You must enter a valid email address.
         </span>
         <span ng-show="showError(logInForm.username, 'required')"> 
-          This field is required
+            Email is required.
         </span>
-      </label>
-      <label class="item item-input">
-        <input type="password" name='password'  placeholder="Password" ng-model="user.password" required>
         <span ng-show="showError(logInForm.password, 'required')"> 
-          This field is required
+            Password is required.
         </span>
-      </label>
-    </div>
-    <button class="button button-block button-positive" ng-click="logIn()">
-      Login
-    </button>
-
-    <div ng-if="response.error" >
-      {{response.message}}
-    </div>
-
-  </form>
+      </div>
+      <div class='invalid' ng-if="response.error" >
+          {{response.message}}
+      </div>
+    </form>
+  </div>
+  <div class='splash-buttons padding-15'>
+        <button class="button button-block button-blank" ng-click="logIn()">Login</button>
+        <a class='button button-block button-blank' ui-sref='splash'>Cancel</a>
+  </div>
 </div>
