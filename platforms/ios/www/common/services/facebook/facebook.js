@@ -74,15 +74,23 @@ app
     getExpiration : function(){
       var time = new Date();
       time.setDate(time.getDate()+60);
-      year = time.getFullYear();
-      month = time.getMonth()+1;
+      var year = time.getFullYear();
+      var month = time.getMonth()+1;
       month = month<10?('0'+month):month;
-      day = time.getDate();
+      var day = time.getDate();
       day = day<10?('0'+day):day;
-      hours = time.getHours();
-      minutes = time.getMinutes();
-      seconds = time.getSeconds();
-      miliseconds = time.getMilliseconds();
+      var hours = time.getHours();
+      hours = hours<10?('0'+hours):hours;
+      var minutes = time.getMinutes();
+      minutes = minutes<10?('0'+minutes):minutes;
+      var seconds = time.getSeconds();
+      seconds = seconds<10?('0'+seconds):seconds;
+      var miliseconds = time.getMilliseconds();
+      if(miliseconds < 10){
+        miliseconds = '00'+miliseconds;
+      }else if(miliseconds < 100){
+        miliseconds = '0'+miliseconds;
+      }
       return year+"-"+month+"-"+day+"T"+hours+":"+minutes+":"+seconds+"."+miliseconds+"Z";
     }
   };
