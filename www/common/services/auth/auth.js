@@ -2,6 +2,7 @@ app
 .factory('Auth', ['$q','Parse', function($q, Parse){
 
   return{
+
     
     signUp : function(params){
       var deferred = $q.defer();

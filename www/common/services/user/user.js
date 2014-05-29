@@ -3,6 +3,10 @@ app
 
   return{
 
+    isAuthenticated : function(){
+      return Parse.User.current();
+    },
+
     setType : function(user,type){
       var deferred = $q.defer();
       user.set("type",type);
