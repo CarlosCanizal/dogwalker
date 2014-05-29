@@ -14,10 +14,16 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services','app.directive
       templateUrl: 'app/splash/login.tpl.html',
       controller: 'LogInCtrl'
     })
+    //signUp
     .state('splash.signUp',{
       url: 'register',
       templateUrl: 'app/splash/signUp.tpl.html',
       controller: 'SignUpCtrl'
+    })
+    .state('splash.userType',{
+      url: 'user_type',
+      templateUrl: 'app/splash/userType.tpl.html',
+      controller: 'UserTypeCtrl'
     })
     //dashboard
     .state('dashboard',{
