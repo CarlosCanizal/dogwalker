@@ -68,7 +68,7 @@ angular.module('app.controllers')
         Auth.signUp($scope.user).then(
           function(user){
             console.log(user);
-            $state.go("dashboard");
+            $state.go("splash.userType");
           },function(error){
             console.log(error);
             $scope.response.error = true;
