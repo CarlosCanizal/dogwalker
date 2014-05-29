@@ -9,7 +9,7 @@ angular.module('app.controllers')
 
   var user = Parse.User.current();
   if(!user.get('type'))
-    $state.go('splash.userType');
+    $state.go('userType');
 
 
 }]);
