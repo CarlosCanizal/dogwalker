@@ -14,9 +14,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services','app.directive
       templateUrl: 'app/splash/login.tpl.html',
       controller: 'LogInCtrl'
     })
-    .state('splash.register',{
+    .state('splash.signUp',{
       url: 'register',
-      templateUrl: 'app/splash/register.tpl.html',
+      templateUrl: 'app/splash/signUp.tpl.html',
       controller: 'SignUpCtrl'
     })
     //dashboard

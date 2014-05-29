@@ -1,0 +1,49 @@
+<div ng-controller="LogInFormCtrl" class='height-100 relative padding-top-15'>
+  <div class='padding-15 '>
+    <a class='button button-block button-positive' ng-click="facebookLogIn()">Login with Facebook</a>
+    <h2 class='align-center'>Or</h2>
+  </div>
+
+  <div ng-controller="SignUpFormCtrl">
+    <div class='padding-15'>
+      <form name='signUpForm' novalidate>
+        <div class="list">
+          <label class="item item-input">
+            <input type="email" name='username' placeholder="Email" ng-model="user.username" required>
+            
+          </label>
+          <label class="item item-input">
+            <input type="password" name='password'  placeholder="Password" ng-model="user.password"  same-as="confirm_password" required>
+          </label>
+          <label class="item item-input">
+            <input type="password" name="confirm_password"  placeholder="Confirm Password" ng-model="confirm_password" equal-as="user.password"   />
+          </label>
+        </div>
+        <div class='invalid'>
+
+          <span ng-show="showError(signUpForm.username, 'email')"> 
+              You must enter a valid email.
+          </span>
+          <span ng-show="showError(signUpForm.username, 'required')"> 
+              Email is required.
+          </span>
+          <span ng-show="showError(signUpForm.password, 'required')"> 
+              Password is required.
+          </span>
+          <span ng-show="showError(signUpForm.confirm_password, 'required')"> 
+              Password Confirmation is required.
+          </span>
+        </div>
+      
+        <div class='invalid' ng-if="response.error" >
+          {{response.message}}
+        </div>
+      </form>
+    </div>
+    <div class='splash-buttons padding-15'>
+      <button class="button button-block button-blank" ng-click="signUp()">SignUp</button>
+      <a class='button button-block button-blank' ui-sref='splash'>Cancel</a>
+    </div>
+  </div>
+  
+</div>
