@@ -16,7 +16,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services','app.directive
     })
     //signUp
     .state('splash.signUp',{
-      url: 'register',
+      url: 'signup',
       templateUrl: 'app/splash/signUp.tpl.html',
       controller: 'SignUpCtrl'
     })

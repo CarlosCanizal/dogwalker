@@ -5,6 +5,7 @@ angular.module('app.controllers')
       var user = Parse.User.current();
       User.setType(user, userType).then(function(user){
         console.log(user);
+        $state.go('dashboard');
       },function(error){
         console.log(error);
       });
