@@ -90,4 +90,34 @@ angular.module('app.controllers')
     };
     
   }])
-  ;
+  .controller('RecoveryController', ['$scope','$state', 'User', function($scope, $state, User) {
+  }])
+  .controller('ForgotPasswordCtrl', ['$scope','$state', 'User', function($scope, $state, User) {
+    $scope.response = {};
+    $scope.response.error = false;
+    $scope.resetPassword = function(){
+      $scope.response.error = false;
+      if($scope.resetPasswordForm.$valid){
+        User.resetPassword($scope.recovery_email).then(function(){
+          console.log("success");
+        },function(error){
+          console.log(error.message);
+          $scope.response.error = true;
+          $scope.response.message = error.message;
+        });
+      }
+    };
+
+    $scope.getCssClasses = function(ngModelController) {
+      return {
+        error: ngModelController.$invalid && ngModelController.$dirty,
+        success: ngModelController.$valid && ngModelController.$dirty
+      };
+    };
+
+    $scope.showError = function(ngModelController, error) {
+      return ngModelController.$error[error] && ngModelController.$dirty ;
+    };
+
+  }]);
+  

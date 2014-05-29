@@ -9,10 +9,16 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services','app.directive
       templateUrl: 'app/splash/splash.tpl.html',
       controller: 'SplashCtrl'
     })
+    //login
     .state('splash.login',{
       url: 'login',
       templateUrl: 'app/splash/login.tpl.html',
       controller: 'LogInCtrl'
+    })
+    .state('splash.forgotPassword',{
+      url: 'forgot',
+      templateUrl: 'app/splash/forgot_password.tpl.html',
+      controller: 'RecoveryController'
     })
     //signUp
     .state('splash.signUp',{
