@@ -20,6 +20,11 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services','app.directive
       templateUrl: 'app/splash/forgot_password.tpl.html',
       controller: 'RecoveryController'
     })
+    .state('splash.forgotPassword.success',{
+      url: '/success',
+      templateUrl: 'app/splash/forgot_password_success.tpl.html',
+      controller: 'RecoveryController'
+    })
     //signUp
     .state('splash.signUp',{
       url: 'signup',
