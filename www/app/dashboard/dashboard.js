@@ -11,5 +11,4 @@ angular.module('app.controllers')
   if(!user.get('type'))
     $state.go('userType');
 
-
 }]);

@@ -100,6 +100,7 @@ angular.module('app.controllers')
       if($scope.resetPasswordForm.$valid){
         User.resetPassword($scope.recovery_email).then(function(){
           console.log("success");
+          $state.go('splash.forgotPassword.success');
         },function(error){
           console.log(error.message);
           $scope.response.error = true;
