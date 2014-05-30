@@ -1,0 +1,28 @@
+<ui-view>
+  <div  class='height-100 relative padding-top-15' ng-controller="ValidatePhoneCtrl">
+    <div class='align-center padding-15'>
+      <h3>Validate Phone Number</h3>
+      <div class="list">
+        <label class="item item-input">
+          <form name='getPhoneCodeForm' novalidate>
+            <input ng-model="phone_number" name="phone_number" type="text" placeholder="Phone Number" required/>
+          </form>
+        </label>
+      </div>
+      <div class='invalid'>
+        <span ng-show="showError(getPhoneCodeForm.phone_number, 'required')"> 
+            Phone Number is required.
+        </span>
+      </div>
+      <div ng-if="response.error" class='invalid'>
+        {{response.message}}
+      </div>
+    </div>
+
+    <div class='splash-buttons padding-15 padding-top-15'>
+      <div class='opacity'></div>
+      <a ng-click="getPhoneCode()" class="button button-block button-empty">Get Phone Code</a>
+      <a ui-sref="splash.login" class="button button-block button-empty">Cancel</a>
+    </div>
+  </div>
+</ui-view>

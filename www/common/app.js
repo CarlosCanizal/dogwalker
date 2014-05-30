@@ -37,6 +37,12 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services','app.directive
       templateUrl: 'app/user/userType.tpl.html',
       controller: 'UserTypeCtrl'
     })
+    //phone
+    .state('verifyPhone',{
+      url: '/phone',
+      templateUrl: 'app/user/verify_phone.tpl.html',
+      controller: 'UserPhoneCtrl'
+    })
     //dashboard
     .state('dashboard',{
       url: '/dashboard',
