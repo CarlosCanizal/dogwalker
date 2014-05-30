@@ -120,5 +120,36 @@ angular.module('app.controllers')
       return ngModelController.$error[error] && ngModelController.$dirty ;
     };
 
+  }])
+  .controller('UserPhoneCtrl', ['$scope','$state', 'User', function($scope, $state, User) {
+  }])
+  .controller('ValidatePhoneCtrl', ['$scope','$state', 'User', function($scope, $state, User) {
+    $scope.response = {};
+    $scope.response.error = false;
+
+    $scope.getPhoneCode = function(){
+      $scope.response.error = false;
+      if($scope.getPhoneCodeForm.$valid){
+        User.getPhoneCode($scope.phone_number).then(function(phone){
+          console.log(phone);
+          //$state.go('');
+        },function(error){
+          console.log(error.message);
+          $scope.response.error = true;
+          $scope.response.message = error.message;
+        });
+      }
+    };
+
+    $scope.getCssClasses = function(ngModelController) {
+      return {
+        error: ngModelController.$invalid && ngModelController.$dirty,
+        success: ngModelController.$valid && ngModelController.$dirty
+      };
+    };
+
+    $scope.showError = function(ngModelController, error) {
+      return ngModelController.$error[error] && ngModelController.$dirty ;
+    };
   }]);
   
